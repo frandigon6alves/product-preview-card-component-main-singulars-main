@@ -1,0 +1,113 @@
+:root {
+    --neutral-grey: hsl(228, 12%, 48%);
+    --primary-cyan: hsl(158, 36%, 37%);
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: 'Montserrat', sans-serif;
+    background-color: hsl(30, 38%, 92%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.product {
+    width: 370px;
+    background-color: white;
+}
+
+.product__image {
+    background-image: url('./images/image-product-mobile.jpg');
+    height: 300px;
+    background-size: cover;
+    border-radius: 16px 16px 0 0;
+}
+
+.product__type {
+    letter-spacing: 5px;
+    color: var(--neutral-grey);
+    text-transform: uppercase;
+}
+
+.product__description {
+    line-height: 1.5rem;
+    color: var(--neutral-grey);
+}
+
+.product__price {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.actual-price {
+    font-size: 2rem;
+    font-family: 'Fraunces';
+    color: var(--primary-cyan);
+}
+
+.previous-price {
+    color: var(--neutral-grey);
+    text-decoration: line-through;
+}
+
+.product__info {
+    padding: 1rem;
+    /* siempre usar rem o píxeles */
+}
+
+.product__button {
+    border: 1px solid var(--primary-cyan);
+    border-radius: 5px;
+    background-color: var(--primary-cyan);
+    color: rgba(255, 255, 255, 0.8);
+    font-weight: bold;
+    padding: 0.8rem 0.5rem;
+    margin: 10px 0;
+    width: 100%;
+}
+
+/** Añadir una media query para cuando el viewport es mayor de 400px, entonces tiene que pasar */
+
+/** 1. Hay que aplicar flex al div del product, en dirección row 
+2. Posiblemente tendréis que ajustar otros valores del contenedor
+*/
+
+@media (min-width: 746px) {
+    .product {
+        display: flex;
+        width: 800px;
+        height: 450px;
+        border-radius: 16px;
+        gap: 1rem;
+
+    }
+
+    .product__image {
+        flex: 0 1 400px;
+        height: auto;
+        border-radius: 16px 0 0 16px;
+        background-position: center;
+        background-image: url('./images/image-product-desktop.jpg');
+    }
+
+    .product__info {
+        flex: 0 1 400px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    .product__button {
+        margin-top: 2rem;
+    }
+
+    /** Mejoras: Cómo hacer que los items del contenedor flex tomen la misma medida en función del width del padre **/
+    /** Cómo hacer para no tener que setear el height de la imagen usando propiedades flex*/
+}
